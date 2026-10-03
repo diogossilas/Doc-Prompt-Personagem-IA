@@ -1,0 +1,6 @@
+{
+  "name": "ARQUITETURA VETORIAL 29-COT // Relatório de Simulação Comportamental",
+  "description": "Sistema de parametrização e modelagem comportamental para decupagem das 29 subseções temáticas, relações de causa e efeito (──>) e geração de dossiês analíticos informativos de alta precisão.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

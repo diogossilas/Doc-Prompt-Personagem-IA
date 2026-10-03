@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Chakra Petch', sans-serif;
+  }
+
+  html {
+    background-color: #04070D;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #080C14;
+    color: #E2E8F0;
+    min-width: 320px;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Proportional Adaptation & Fluid Scaling */
+.proportional-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  /* Widescreen and TV proportional adaptation */
+  .proportional-widescreen {
+    aspect-ratio: auto;
+  }
+}
+
+@media (max-aspect-ratio: 9/16) {
+  /* Ultra-tall mobile phone adaptation */
+  .proportional-mobile {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Television & 4K Ultra-Large Display Scaling */
+@media (min-width: 1920px) {
+  :root {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    font-size: 19px;
+  }
+}
+
+/* Mobile Safe Bottom Spacing for Navigation */
+@media (max-width: 768px) {
+  .mobile-safe-bottom {
+    padding-bottom: 5.5rem;
+  }
+}
+
+/* Tactical Background Grid Pattern */
+.tactical-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+}
+
+.tactical-grid-dense {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+}
+
+/* Tactical Corner Crosshairs */
+.corner-crosshairs {
+  position: relative;
+}
+.corner-crosshairs::before,
+.corner-crosshairs::after {
+  content: '+';
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(56, 189, 248, 0.5);
+  line-height: 1;
+  pointer-events: none;
+}
+.corner-crosshairs::before {
+  top: -6px;
+  left: -4px;
+}
+.corner-crosshairs::after {
+  bottom: -6px;
+  right: -4px;
+}
+
+/* Light-Line Scanning Animation */
+@keyframes laserSweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(1000%);
+    opacity: 0;
+  }
+}
+
+@keyframes beamScanHoriz {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    box-shadow: 0 0 4px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    opacity: 0.95;
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+  }
+}
+
+.anim-laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8) 50%, transparent);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+  animation: laserSweep 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.anim-beam-h {
+  animation: beamScanHoriz 4s ease-in-out infinite;
+}
+
+.anim-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-laser-line,
+  .anim-beam-h,
+  .anim-pulse-glow {
+    animation: none !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B111A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0EA5E9;
+}
